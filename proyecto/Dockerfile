@@ -1,4 +1,4 @@
-FROM php:8.1-apache
+FROM php:7.4.30-apache
 
 #Creacion de simplesaml
 RUN mkdir -p /var/www/simplesaml
