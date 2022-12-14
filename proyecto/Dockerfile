@@ -1,8 +1,8 @@
-FROM php:7.4.30-apache
+FROM php:8.1-apache
 
 #Creacion de simplesaml
 RUN mkdir -p /var/www/simplesaml
-COPY . /var/www/html/
+#COPY . /var/www/html/
 COPY ./simplesaml/ /var/www/simplesaml/
 COPY ./simplesaml/000-default.conf  /etc/apache2/sites-available/000-default.conf
 
