@@ -57,7 +57,7 @@ pipeline {
 
    stage('Restarting POD'){
    steps{
-    sshagent(['kubernetessh'])
+    sshagent(['rodriguezssh'])
     {
      sh 'cd proyecto && scp -r -o StrictHostKeyChecking=no deployment.yaml digesetuser@148.213.1.131:/home/digesetuser/'
       script{
