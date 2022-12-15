@@ -1,8 +1,8 @@
 pipeline {
 
   environment {
-    dockerimagename1 = "udecdj2022/proyecto:cra"
-    dockerimagename2 = "udecdj2022/phpmyadmin:cra"
+    dockerimagename1 = "carlarodriguezag/proyecto:cra"
+    dockerimagename2 = "carlarodriguezag/phpmyadmin:cra"
     dockerImage = ""
   }
 
@@ -35,7 +35,7 @@ pipeline {
 
     stage('Pushing Image') {
       environment {
-               registryCredential = 'dockerhubhaep'
+               registryCredential = 'demo_dockerhub'
            }
       steps{
 	dir('proyecto') {
