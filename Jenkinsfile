@@ -42,7 +42,7 @@ pipeline {
 	dir('proyecto') {
         script {
           docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            dockerImage.push("cra")
+            dockerImage.push1("cra")
           }
         }
       }
@@ -50,7 +50,7 @@ pipeline {
         dir('phpmyadmin') {
         script {
           docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            dockerImage.push("cra")
+            dockerImage.push2("cra")
           }
         }
       }
