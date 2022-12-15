@@ -19,7 +19,7 @@ pipeline {
     stage('Build image') {
       steps{
 	dir('proyecto') {
-          script {        
+         script {        
 	   dockerImage = docker.build dockerimagename1
           }
         }
@@ -38,13 +38,24 @@ pipeline {
                registryCredential = 'dockerhubhaep'
            }
       steps{
+	dir('proyecto') {
         script {
           docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            dockerImage.push("latest")
+            dockerImage.push("cra")
           }
         }
       }
+
+    dir('phpmyadmin') {
+        script {
+          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+            dockerImage.push("cra")
+          }
+        }
+      }
+
     }
+  }
 
    //stage('Deploying App to Kubernetes') {
    //  steps {
