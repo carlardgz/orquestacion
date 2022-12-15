@@ -93,7 +93,7 @@ pipeline {
         try{
            sh 'ssh digesetuser@148.213.1.131 microk8s.kubectl apply -f deployment.yaml --kubeconfig=/home/digesetuser/.kube/config'
            sh 'ssh digesetuser@148.213.1.131 microk8s.kubectl rollout restart deployment mysql-deployment --kubeconfig=/home/digesetuser/.kube/config'
-           sh 'ssh digesetuser@148.213.1.131 microk8s.kubectl rollout status deployment0 mysql-deployment --kubeconfig=/home/digesetuser/.kube/config'
+           sh 'ssh digesetuser@148.213.1.131 microk8s.kubectl rollout status deployment mysql-deployment --kubeconfig=/home/digesetuser/.kube/config'
           }catch(error)
        {}
 
