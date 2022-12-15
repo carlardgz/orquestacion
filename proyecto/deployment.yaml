@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: proyecto
-          image: udecdj2022/proyecto:haep
+          image: udecdj2022/proyecto:cra
           imagePullPolicy: Always
           ports:
             - containerPort: 80

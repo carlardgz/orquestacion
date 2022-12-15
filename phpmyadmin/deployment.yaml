@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: phpmyadmin
-          image: udecdj2022/phpmyadmin:haep
+          image: udecdj2022/phpmyadmin:cra
           ports:
             - containerPort: 80
           env:
