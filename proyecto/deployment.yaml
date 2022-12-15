@@ -3,10 +3,15 @@ kind: Deployment
 metadata:
   name: proyecto
 spec:
-  selector:
-   matchLabels:
-    app: proyecto
   replicas: 1
+  selector:
+    matchLabels:
+      app: proyecto
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+        maxSurge: 0
+        maxUnavailable: 1
   template:
     metadata:
       labels:
