@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     dockerimagename1 = "udecdj2022/proyecto:haep"
-    dockerimagename2 = "udecdj2022/phpmyadmin:haep"
+    //dockerimagename2 = "udecdj2022/phpmyadmin:haep"
     dockerImage = ""
   }
 
@@ -24,11 +24,11 @@ pipeline {
           }
         }
 	
-	dir('phpmyadmin') {
-	 script {
-           dockerImage = docker.build dockerimagename2
-          }
-        }
+	//dir('phpmyadmin') {
+	 //script {
+           //dockerImage = docker.build dockerimagename2
+          //}
+        //}
 
       }
    }
@@ -68,18 +68,18 @@ pipeline {
           }catch(error)
        {}
      
-     sh 'cd phpmyadmin && scp -r -o StrictHostKeyChecking=no deployment.yaml digesetuser@148.213.1.131:/home/digesetuser/'
-      script{
-        try{
-           sh 'ssh digesetuser@148.213.1.131 microk8s.kubectl apply -f deployment.yaml --kubeconfig=/home/digesetuser/.kube/config'
-           sh 'ssh digesetuser@148.213.1.131 microk8s.kubectl rollout restart deployment phpmyadmin-deployment --kubeconfig=/home/digesetuser/.kube/config'
-           sh 'ssh digesetuser@148.213.1.131 microk8s.kubectl rollout status deployment phpmyadmin-deployment --kubeconfig=/home/digesetuser/.kube/config'
-          }catch(error)
-       {}
+    //sh 'cd phpmyadmin && scp -r -o StrictHostKeyChecking=no deployment.yaml digesetuser@148.213.1.131:/home/digesetuser/'
+      //script{
+        //try{
+           //sh 'ssh digesetuser@148.213.1.131 microk8s.kubectl apply -f deployment.yaml --kubeconfig=/home/digesetuser/.kube/config'
+           //sh 'ssh digesetuser@148.213.1.131 microk8s.kubectl rollout restart deployment phpmyadmin-deployment --kubeconfig=/home/digesetuser/.kube/config'
+           //sh 'ssh digesetuser@148.213.1.131 microk8s.kubectl rollout status deployment phpmyadmin-deployment --kubeconfig=/home/digesetuser/.kube/config'
+          //}catch(error)
+       //{}
      }
     }
   }
  }
 }
-}
-}
+//}
+//}
