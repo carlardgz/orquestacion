@@ -3,7 +3,8 @@ pipeline {
   environment {
     dockerimagename1 = "carlarodriguezag/proyecto:cra"
     dockerimagename2 = "carlarodriguezag/phpmyadmin:cra"
-    dockerImage = ""
+    dockerImage1 = ""
+    dockerImage2= ""
   }
 
   agent any
@@ -20,13 +21,13 @@ pipeline {
       steps{
 	dir('proyecto') {
          script {        
-	   dockerImage = docker.build dockerimagename1
+	   dockerImage1 = docker.build dockerimagename1
           }
         }
 	
 	dir('phpmyadmin') {
 	 script {
-           dockerImage = docker.build dockerimagename2
+           dockerImage2 = docker.build dockerimagename2
           }
         }
 
