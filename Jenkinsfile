@@ -46,14 +46,13 @@ pipeline {
         }
       }
 
-    dir('phpmyadmin') {
+        dir('phpmyadmin') {
         script {
           docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
             dockerImage.push("cra")
           }
         }
       }
-
     }
   }
 
