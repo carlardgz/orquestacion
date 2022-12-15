@@ -1,8 +1,8 @@
 pipeline {
 
   environment {
-    dockerimagename1 = "udecdj2022/proyecto:cra"
-    dockerimagename2 = "udecdj2022/phpmyadmin:cra"
+    dockerimagename1 = "udecdj2022/proyecto:haep"
+    dockerimagename2 = "udecdj2022/phpmyadmin:haep"
     dockerImage1 = ""
     dockerImage2= ""
   }
@@ -42,7 +42,7 @@ pipeline {
 	dir('proyecto') {
         script {
           docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            dockerImage1.push("cra")
+            dockerImage1.push("haep")
           }
         }
       }
@@ -50,7 +50,7 @@ pipeline {
         dir('phpmyadmin') {
         script {
           docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            dockerImage2.push("cra")
+            dockerImage2.push("haep")
           }
         }
       }
